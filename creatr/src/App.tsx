@@ -5,8 +5,8 @@ function App() {
   return (
 <div className="app-container">
   <form className='note-form'>
-    <input placeholder='Title' required/>
-    <textarea placeholder='content' rows = {10} required />
+    <input placeholder='Task Title' required/>
+    <textarea placeholder='Task Content' rows = {10} required />
     <button type='submit'>Add progress note</button>
   </form>
   <div className="notes-grid">
@@ -14,8 +14,8 @@ function App() {
       <div className="notes-header">
         <button>X</button>
       </div>
-      <h2>Note Title</h2>
-      <p>Note Content</p>
+      <h2>TASK</h2>
+      <p>Task Description</p>
     </div>
   </div>
 </div>
