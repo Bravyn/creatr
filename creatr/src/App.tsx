@@ -7,8 +7,8 @@ function App() {
     title: string;
     content: string;
   }
-  
-  const [notes, setNotes] = useState<Note[]> ([
+
+  const [notes, setNotes] = useState<Note[]>([
     {
       id: 1,
       title: "Test note 1",
@@ -39,28 +39,44 @@ function App() {
       title: "Test note 6",
       content: "This is a test note"
     }
-    
+
 
   ])
   return (
-<div className="app-container">
-  <form className='note-form'>
-    <input placeholder='Task Title' required/>
-    <textarea placeholder='Task Content' rows = {10} required />
-    <button type='submit'>Add progress note</button>
-  </form>
-  <div className="notes-grid">
-    <div className="note-item">
-      <div className="notes-header">
-        <button>X</button>
+    <div className="app-container">
+
+      <form className='note-form'>
+        <input placeholder='Task Title' required />
+        <textarea placeholder='Task Content' rows={10} required />
+        <button type='submit'>Add progress note</button>
+      </form>
+
+      <div className="notes-grid">
+        {notes.map((note) => (
+          <div className="note-item">
+            <div className="notes-header">
+              <button>X</button>
+            </div>
+
+            <h2>{note.title}</h2>
+            <p>{note.content}</p>
+          </div>
+
+
+
+
+
+
+
+
+        )
+
+        )}
+
       </div>
-      <h2>TASK</h2>
-      <p>Task Description</p>
     </div>
-  </div>
-</div>
 
   )
-  };
+};
 
 export default App;
