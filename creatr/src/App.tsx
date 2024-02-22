@@ -8,6 +8,15 @@ function App() {
     content: string;
   }
 
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
+
+  const handleAddNote = (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("Title: ", title);
+    console.log("Content: ", content)
+  };
+  
   const [notes, setNotes] = useState<Note[]>([
     {
       id: 1,
@@ -46,28 +55,46 @@ function App() {
     <div className="app-container">
 
       <form className='note-form'>
-        <input placeholder='Task Title' required />
-        <textarea placeholder='Task Content' rows={10} required />
+
+        <input
+
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          placeholder='Task Title'
+          required
+
+        ></input>
+
+        <textarea
+
+          value = { content }
+          onChange={ (event) => setContent(event.target.value)}
+          placeholder='Task Content'
+          rows={10} 
+          required
+          
+        ></textarea>
+
         <button type='submit'>Add progress note</button>
+
       </form>
 
       <div className="notes-grid">
+
         {notes.map((note) => (
+
           <div className="note-item">
+
             <div className="notes-header">
+
               <button>X</button>
+
             </div>
 
             <h2>{note.title}</h2>
             <p>{note.content}</p>
+
           </div>
-
-
-
-
-
-
-
 
         )
 
